@@ -58,3 +58,9 @@ df_spark_googletrends_rank.write.saveAsTable(
     overwriteSchema="true",
     mode="overwrite",
 )
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DROP VIEW IF EXISTS Google_Trends_Rank_Calculation;
+# MAGIC VACUUM google.GoogleTrendsRank;
