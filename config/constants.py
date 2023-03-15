@@ -1,4 +1,8 @@
 # Databricks notebook source
+# Databricks Notebook source
+
+# COMMAND ----------
+
 # constants
 MOUNT_POINT = "dbfs:/mnt/dls"
  

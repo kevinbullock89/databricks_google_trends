@@ -1,4 +1,8 @@
 # Databricks notebook source
+# Databricks Notebook source
+
+# COMMAND ----------
+
 # MAGIC %run ../config/constants
 
 # COMMAND ----------
