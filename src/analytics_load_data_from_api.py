@@ -3,7 +3,7 @@
 
 # COMMAND ----------
 
-# MAGIC %run ./api_header
+# MAGIC %run /Shared/api_header
 
 # COMMAND ----------
 
