@@ -1,4 +1,4 @@
-# databricks_google_trends
+# Databricks google trends project
 
 Databricks / Delta google trends project
 
