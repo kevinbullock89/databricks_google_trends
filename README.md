@@ -4,8 +4,6 @@ Welcome to my project on data security trends using Google Trends data. In today
 
 This repository contains a project that demonstrates how to load data using the Pytrends library in Databricks and store it in Delta tables.
 
-![image](https://github.com/kevinbullock89/databricks_google_trends/blob/main/Screenshots/Google_DAG.PNG)
-
 ## Prerequisites:
 
 To use this project, you will need the following:
@@ -86,6 +84,8 @@ Delta Lake is a reliable and performant data storage solution built on top of Ap
 ### Databricks Workflow
 
 I use Databricks Workflow to orchestrate my tasks in a scalable and automated way. Workflow enables me to schedule Python scripts at specific times or intervals and monitor their execution using a unified interface. It also allows me to send email notifications and create custom alerts based on specific conditions.
+
+![image](https://github.com/kevinbullock89/databricks_google_trends/blob/main/Screenshots/Google_DAG.PNG)
 
 
 ## Usage
