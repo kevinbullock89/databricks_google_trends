@@ -4,7 +4,7 @@ Databricks / Delta google trends project
 
 This repository contains a project that demonstrates how to load data using the Pytrends library in Databricks and store it in Delta tables.
 
-![image](https://github.com/kevinbullock89/databricks_google_trends/blob/Add_Readme/Screenshots/Google_DAG.PNG)
+![image](https://github.com/kevinbullock89/databricks_google_trends/blob/main/Screenshots/Google_DAG.PNG)
 
 ## Prerequisites:
 
@@ -73,7 +73,7 @@ This script calculates the rank of search terms per time frame using a SQL scrip
 
 The output looks like this, e.g. for Austria:
 
-![image](https://github.com/kevinbullock89/databricks_google_trends/blob/Add_Readme/Screenshots/Google_Rank.PNG)
+![image](https://github.com/kevinbullock89/databricks_google_trends/blob/main/Screenshots/Google_Rank.PNG)
 
 ## Databricks
 
