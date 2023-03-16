@@ -7,11 +7,13 @@
 
 # COMMAND ----------
 
+# DBTITLE 1,Import Python packages
 import pandas as pd
 import pycountry
 
 # COMMAND ----------
 
+# DBTITLE 1,Build the country function
 def country():
     geo_country_dict = {}
     for country in pycountry.countries:
@@ -24,6 +26,7 @@ def country():
 
 # COMMAND ----------
 
+# DBTITLE 1,Save results into a delta table
 analytics_delta_table_name = "Country"
 analytics_delta_table_path = f"{MOUNT_POINT}/{ANALYTICS_DELTA_TABLE_BASE_FOLDER}/{analytics_delta_database_name}/{analytics_delta_table_name}.delta"
 df_spark_country = spark.createDataFrame(country()) # Convert Pandas Datafram to Spark Dataframe
@@ -37,5 +40,6 @@ df_spark_country.write.saveAsTable(
 
 # COMMAND ----------
 
+# DBTITLE 1,Vacuum delta table
 # MAGIC %sql
 # MAGIC VACUUM google.Country;

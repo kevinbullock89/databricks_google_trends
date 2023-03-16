@@ -7,10 +7,12 @@
 
 # COMMAND ----------
 
-# MAGIC %run /Shared/api_header
+# The header for the pytrend request is not stored in the public repo, because it contains personal data.
+%run /Shared/api_header
 
 # COMMAND ----------
 
+# DBTITLE 1,Import Python packages
 import pandas as pd
 from pytrends.request import TrendReq as UTrendReq
 import pycountry
@@ -18,6 +20,7 @@ import time
 
 # COMMAND ----------
 
+# DBTITLE 1,Build the Google Trend function
 
 # use of a custom header for the pytrend request. More information here: https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
 
@@ -75,16 +78,19 @@ def google_trends(kw, tf):
 
 # COMMAND ----------
 
+# DBTITLE 1,Loading the data from the Google Trend function to a data frame
 # provide your search terms
 kw_list=['vpn', 'hack', 'cyber', 'security', 'wifi']
 
 # provide your time frames
 timeframes = ['now 7-d']
 
+# saving the results to a data frame
 df_googletrends = (google_trends(kw_list,timeframes))
 
 # COMMAND ----------
 
+# DBTITLE 1,Save results into a delta table
 analytics_delta_table_name = "GoogleTrends"
 analytics_delta_table_path = f"{MOUNT_POINT}/{ANALYTICS_DELTA_TABLE_BASE_FOLDER}/{analytics_delta_database_name}/{analytics_delta_table_name}.delta"
 df_spark_googletrends = spark.createDataFrame(df_googletrends) # Convert Pandas Datafram to Spark Dataframe
@@ -98,5 +104,6 @@ df_spark_googletrends.write.saveAsTable(
 
 # COMMAND ----------
 
+# DBTITLE 1,Vacuum delta table
 # MAGIC %sql
 # MAGIC VACUUM google.googletrends;
