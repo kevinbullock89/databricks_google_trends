@@ -7,6 +7,7 @@
 
 # COMMAND ----------
 
+# DBTITLE 1,Create rank calculation Funktion
 # MAGIC %sql
 # MAGIC CREATE
 # MAGIC OR REPLACE TEMPORARY VIEW  Google_Trends_Rank_Calculation AS
@@ -50,6 +51,7 @@
 
 # COMMAND ----------
 
+# DBTITLE 1,Save results into a delta table
 analytics_delta_table_name = "GoogleTrendsRank"
 analytics_delta_table_path = f"{MOUNT_POINT}/{ANALYTICS_DELTA_TABLE_BASE_FOLDER}/{analytics_delta_database_name}/{analytics_delta_table_name}.delta"
 df_spark_googletrends_rank = spark.sql('''
@@ -65,6 +67,7 @@ df_spark_googletrends_rank.write.saveAsTable(
 
 # COMMAND ----------
 
+# DBTITLE 1,Vacuum delta table and drop view
 # MAGIC %sql
 # MAGIC DROP VIEW IF EXISTS Google_Trends_Rank_Calculation;
 # MAGIC VACUUM google.GoogleTrendsRank;
