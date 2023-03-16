@@ -1,6 +1,6 @@
-# Databricks google trends project
+# Databricks Google Trends / Data Security
 
-Databricks / Delta google trends project
+Welcome to my project on data security trends using Google Trends data. In today's digital landscape, data security is a critical concern for individuals and organizations alike. In this project, I'm leveraging the power of Azure Databricks and Delta to collect and analyze data from Google Trends, in order to gain insights into the latest trends and interests in the area of data security.
 
 This repository contains a project that demonstrates how to load data using the Pytrends library in Databricks and store it in Delta tables.
 
