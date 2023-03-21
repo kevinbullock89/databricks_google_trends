@@ -7,28 +7,30 @@
 
 # COMMAND ----------
 
-# The header for the pytrend request is not stored in the public repo, because it contains personal data.
-%run /Shared/api_header
-
-# COMMAND ----------
-
 # DBTITLE 1,Import Python packages
 import pandas as pd
 from pytrends.request import TrendReq as UTrendReq
 import pycountry
 import time
+import ast
+
+# COMMAND ----------
+
+# DBTITLE 1,Load API Header
+# The header for the pytrend request is not stored in the public repo, because it contains personal data. 
+# use of a custom header for the pytrend request. More information here: https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
+API_Header = dbutils.secrets.get(scope="keyVaultScope", key="APIHeader") # The API Key is stored in the Key vault
+API_Dict = ast.literal_eval(API_Header) # converting string into dictionary
 
 # COMMAND ----------
 
 # DBTITLE 1,Build the Google Trend function
 
-# use of a custom header for the pytrend request. More information here: https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
-
 GET_METHOD='get'
 
 class TrendReq(UTrendReq):
     def _get_data(self, url, method=GET_METHOD, trim_chars=0, **kwargs):
-        return super()._get_data(url, method=GET_METHOD, trim_chars=trim_chars, headers=headers, **kwargs)
+        return super()._get_data(url, method=GET_METHOD, trim_chars=trim_chars, headers=API_Dict, **kwargs)
     
 pytrend = TrendReq()
 

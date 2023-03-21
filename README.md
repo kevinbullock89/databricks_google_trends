@@ -57,15 +57,15 @@ To access the Storage account in Databricks and load the data, we use a Service 
    
 ## Python Scripts
 
-### analytics_load_data_from_api.py
+### load_data_from_api.py
 
 This script uses the pytrend library to load data from Google Trends. With the google_trends() function, you can specify search terms and time frames to load interests by region. To avoid Google's 429 error code, I have included custom headers. More information can be found here:  https://stackoverflow.com/questions/50571317/pytrends-the-request-failed-google-returned-a-response-with-code-429
 
-### analytics_load_country_data.py
+### country_data.py
 
 This script loads country codes and names using the pycountry library  (https://pypi.org/project/pycountry/)
 
-### analytics_google_trend_rank.py
+### google_trend_rank.py
 
 This script calculates the rank of search terms per time frame using a SQL script. First, a CTE is created to calculate the rank column using the ROW_NUMBER() function. Then, the rank is calculated as a percentage and the results are saved in the correct order.
 
