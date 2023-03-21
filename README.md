@@ -50,7 +50,7 @@ To access the Storage account in Databricks and load the data, we use a Service 
       ```
    - Create a Secret Scope, add DNS name of the Key Vault and Resource ID
    - Create a Access token
-   - Open the mounts notebook and run it. https://github.com/kevinbullock89/databricks_google_trends/blob/Add_Readme/config/mount.py
+   - Open the mounts notebook and run it. https://github.com/kevinbullock89/databricks_google_trends/blob/main/config/mount.py
    
    By following these steps, you can easily create a Service Principal and configure the necessary credentials and permissions to access and load the data from the        Storage account in Databricks.
   
