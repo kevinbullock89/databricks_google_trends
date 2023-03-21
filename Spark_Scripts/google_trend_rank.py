@@ -10,7 +10,7 @@
 # DBTITLE 1,Create rank calculation Funktion
 # MAGIC %sql
 # MAGIC CREATE
-# MAGIC OR REPLACE TEMPORARY VIEW  Google_Trends_Rank_Calculation AS
+# MAGIC OR REPLACE TEMPORARY VIEW Google_Trends_Rank_Calculation AS
 # MAGIC 
 # MAGIC WITH Sum_Rank_Calculation AS (
 # MAGIC   SELECT
@@ -23,7 +23,7 @@
 # MAGIC       C.Country_Name
 # MAGIC       ORDER BY
 # MAGIC         G.Search_Terms DESC,
-# MAGIC         C.Country_Name ASC
+# MAGIC         C.Country_Name DESC
 # MAGIC     ) AS Rank,
 # MAGIC     SUM(Search_Terms) OVER (
 # MAGIC       PARTITION BY G.Time_Frame,
